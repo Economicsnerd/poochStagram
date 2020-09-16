@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.7'
 # Simpe form : forms made Easy
 gem 'simple_form'
 
+# DOTENV for security
+gem 'dotenv-rails', groups: [:development, :test]
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
