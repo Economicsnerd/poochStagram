@@ -1,0 +1,2 @@
+class Pooch < ApplicationRecord
+end
