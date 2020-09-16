@@ -5,31 +5,49 @@ class PoochesController < ApplicationController
 
   # GET /pooches
   def index
+    @pooches = Pooch.all
   end
+
+  # GET /pooches/new
+  def new
+    @pooch = Pooch.new
+  end
+
   # GET /pooches/:id
   def show
   end
-  # GET /pooches/news
-  def new
-  end
-  # GET /pooches/new
+
+  # PATCH /pooches/:id
   def edit
+  end
+
+  def update
+    @pooch.update(pooch_params)
+    # Redirect to show Page
+    redirect_to pooch_path(@pooch)
   end
 
   # POST /pooches
   def create
+    @pooch = Pooch.new(pooch_params)
+    @pooch.save
+
+    # Redirect to show page
+    redirect_to pooch_path(@pooch)
   end
-  # PATCH /pooches/:id
-  def update
-  end
+
   # DELETE /pooches/:id
   def destroy
+    @pooch.destroy
+    # Redirect to index
+    redirect_to root_path
   end
 
 
   private
 
   def set_pooch
+    @pooch = Pooch.find(params[:id])
   end
 
   def pooch_params

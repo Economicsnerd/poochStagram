@@ -1,0 +1,17 @@
+<h1>Pooches Will all Go here</h1>
+
+<ul>
+  <% @pooches.each do |pooch| %>
+    <li><%= pooch.name %></li>
+    <li><%= pooch.caption %></li>
+    <li>
+    <%= link_to "view", pooch, class: 'btn btn-primary' %>
+    <%= link_to "edit", edit_pooch_path(pooch), class: 'btn btn-warning' %>
+    <%= link_to "Delete",
+            pooch_path(pooch),
+            method: :delete %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Add a pooch", new_pooch_path %>
