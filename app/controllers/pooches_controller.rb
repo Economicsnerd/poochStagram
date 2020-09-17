@@ -30,10 +30,11 @@ class PoochesController < ApplicationController
   # POST /pooches
   def create
     @pooch = Pooch.new(pooch_params)
-    @pooch.save
-
-    # Redirect to show page
-    redirect_to pooch_path(@pooch)
+    if @pooch.save
+      redirect_to @pooch, notice: 'Pooch Added <3'
+    else
+      render :new
+    end
   end
 
   # DELETE /pooches/:id
@@ -51,7 +52,7 @@ class PoochesController < ApplicationController
   end
 
   def pooch_params
-    params.require(:pooch).permit(:name, :caption, :likes)
+    params.require(:pooch).permit(:name, :caption, :likes, :photo)
   end
 
 end

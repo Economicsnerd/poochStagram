@@ -1,7 +1,11 @@
 <h1>Add your pooch right here please</h1>
 
 <%= simple_form_for @pooch do |f| %>
+  <%if @pooch.photo.attached?%>
+    <%= cl_image_tag @pooch.photo.key, crop: :thumb%>
+  <%end%>
   <%= f.input :name %>
   <%= f.input :caption %>
+  <%= f.input :photo, as: :file %>
   <%= f.button :submit %>
 <% end %>

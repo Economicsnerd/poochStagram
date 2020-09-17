@@ -28,6 +28,9 @@ gem 'simple_form'
 # DOTENV for security
 gem 'dotenv-rails', groups: [:development, :test]
 
+# Adding Cloudinary
+gem 'cloudinary'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
