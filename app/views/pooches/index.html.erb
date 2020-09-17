@@ -1,9 +1,18 @@
 <h1>Pooches Will all Go here</h1>
+<br>
+<br>
 
-<ul class="container">
+<section id="photos">
   <% @pooches.each do |pooch| %>
-    <%= cl_image_tag pooch.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="container">
+    <%= cl_image_tag pooch.photo.key, class: "image" %>
+  </div>
+  <div class="middle">
+    <div class="text">
+      <%= pooch.name %>
+    </div>
+  </div>
   <% end %>
-</ul>
+</section>
 
 <%= link_to "Add a pooch", new_pooch_path %>
