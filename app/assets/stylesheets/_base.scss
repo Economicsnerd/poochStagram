@@ -1,24 +1,19 @@
-
-// Remove styling from #pooch-listing
-#pooch-list {
-  list-style: none;
-  padding-left: 0;
-  li {
-    cursor: pointer;
-  }
+body {
+  font-family: 'Raleway', sans-serif !important;
 }
-//  Grid Styling
 
+// Styling the image grid using flexbox
 #photos {
   /* Prevent vertical gaps */
   line-height: 0;
 
   -webkit-column-count: 4;
-  -webkit-column-gap:   5px;
+  -webkit-column-gap:   0px;
   -moz-column-count:    4;
-  -moz-column-gap:      5px;
+  -moz-column-gap:      0px;
   column-count:         4;
-  column-gap:           5px;
+  column-gap:           0px;
+  grid-gap:             1em;
 }
 
 #photos img {
@@ -27,31 +22,77 @@
   height: auto !important;
 }
 
-@media (max-width: 1200px) {
-  #photos {
-  -moz-column-count:    4;
-  -webkit-column-count: 4;
-  column-count:         4;
-  }
+// .grid-container {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+//   grid-gap: 1em;
+// }
+
+img {
+  width: 100%;
+  height: auto;
 }
-@media (max-width: 1000px) {
-  #photos {
-  -moz-column-count:    3;
-  -webkit-column-count: 3;
-  column-count:         3;
-  }
+
+.pooch-listing {
+  position: relative;
 }
-@media (max-width: 800px) {
-  #photos {
-  -moz-column-count:    2;
-  -webkit-column-count: 2;
-  column-count:         2;
-  }
+
+.pooch-name {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(80, 79, 77, 0.308);
+  opacity: 0;
+  transition: opacity .5s;
 }
-@media (max-width: 400px) {
-  #photos {
-  -moz-column-count:    1;
-  -webkit-column-count: 1;
-  column-count:         1;
+
+.pooch-photo {
+  line-height: 0;
+  margin-top: 1em;
+}
+
+.pooch-name {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(80, 79, 77, 0.308);
+
+  /* typographic styles */
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: none;
+
+  /* position the text centrally*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.pooch-listing:hover .pooch-name {
+  opacity: 1;
+}
+
+.pooch-photo img {
+  filter: blur(0px);
+  transition: filter 0.3s ease-in;
+}
+
+.pooch-listing:hover .pooch-photo img {
+  filter: blur(2px);
+}
+
+/* for touch screen devices */
+@media (hover: none) {
+  .location-title {
+    opacity: 1;
+  }
+  .location-image img {
+    filter: blur(2px);
   }
 }

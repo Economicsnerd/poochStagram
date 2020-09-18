@@ -1,18 +1,22 @@
 <h1>Pooches Will all Go here</h1>
 <br>
 <br>
-
-<section id="photos">
-  <% @pooches.each do |pooch| %>
-  <div class="container">
-    <%= cl_image_tag pooch.photo.key, class: "image" %>
-  </div>
-  <div class="middle">
-    <div class="text">
-      <%= pooch.name %>
-    </div>
-  </div>
-  <% end %>
-</section>
-
 <%= link_to "Add a pooch", new_pooch_path %>
+<br>
+<br>
+<div class="child-page-listing">
+
+  <div class="grid-container" id="photos">
+    <% @pooches.each do |pooch| %>
+      <%= link_to pooch do %>
+        <div class="pooch-listing">
+          <p class="pooch-name"> <%= pooch.name%></p>
+          <div class="pooch-photo">
+             <%= cl_image_tag pooch.photo.key, class: "img-responsive" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>
