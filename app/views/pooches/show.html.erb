@@ -1,4 +1,8 @@
 <%= link_to '<< Back', root_path, class: "btn btn-light"%>
 
 
-<h2> Show Page for <%= @pooch.name %> </h2>
+<h2> <%= @pooch.name %> </h2>
+<div class="">
+  <%= cl_image_tag @pooch.photo.key %>
+  <%= @pooch.caption %>
+</div>

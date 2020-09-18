@@ -7,9 +7,19 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/45450abdc4.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
+    <nav class="navbar navbar-light bg-light fixed-top justify-content mb-3">
+      <a class="navbar-brand" href="/">
+        <i class="fas fa-paw"> PoochStagram</i>
+      </a>
+      <div>
+        <span class="btn btn-primary">Login</span>
+        <span><%= link_to "Add a pooch", new_pooch_path, class: "btn btn-primary" %></span>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
