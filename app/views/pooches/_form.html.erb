@@ -1,11 +1,13 @@
-<h1>Add your pooch right here please</h1>
+<h1 class="text-center">Add a pooch <i class="fas fa-paw"></i> </h1>
 
-<%= simple_form_for @pooch do |f| %>
-  <%if @pooch.photo.attached?%>
-    <%= cl_image_tag @pooch.photo.key, crop: :thumb%>
-  <%end%>
-  <%= f.input :name %>
-  <%= f.input :caption %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+  <%= simple_form_for @pooch do |f| %>
+    <%if @pooch.photo.attached?%>
+      <%= cl_image_tag @pooch.photo.key, crop: :thumb%>
+    <%end%>
+    <%= f.input :name, required: true, input_html: { maxlength: 10 } %>
+    <%= f.input :caption %>
+    <%= f.input :photo, as: :file, class: "form-control-file", required: true %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>

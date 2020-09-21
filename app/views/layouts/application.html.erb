@@ -30,12 +30,13 @@
             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">About</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <% if user_signed_in? %>
             <span class = "nav-item active">
+            <%= link_to 'Add new Pooch', new_pooch_path, class: "btn btn-primary"%>
             <%= link_to('Logout', destroy_user_session_path, class: "btn btn-primary", method: :delete) %>
             </span>
           <% else %>

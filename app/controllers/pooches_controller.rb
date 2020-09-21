@@ -1,6 +1,7 @@
 class PoochesController < ApplicationController
   # Run this before any method
   before_action :set_pooch, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: :home
 
 
   # GET /pooches

@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.7'
 # Simpe form : forms made Easy
 gem 'simple_form'
 
+# fontawesome
+gem 'font-awesome-sass', '~> 4.7.0'
+
 # DOTENV for security
 gem 'dotenv-rails', groups: [:development, :test]
 
