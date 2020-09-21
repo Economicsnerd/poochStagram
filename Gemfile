@@ -31,6 +31,9 @@ gem 'dotenv-rails', groups: [:development, :test]
 # Adding Cloudinary
 gem 'cloudinary'
 
+# Adding devise for easy auth
+gem 'devise'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
