@@ -1,12 +1,28 @@
-<%= link_to '<< Back', root_path, class: "btn btn-light"%>
+<%= link_to 'Back', root_path, class: "btn btn-primary"%>
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h2 class = "card-title d-flex justify-content-between mb-4">
+      <span> <%= @pooch.name %></span>
+        <div>
+          <%= link_to 'Edit', edit_pooch_path(@pooch), class: "btn btn-warning"%>
+          <%= link_to 'Delete', @pooch, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        </div>
+      </h2>
+      <div class="card-img-top mb-3">
+        <% if @pooch.photo.attached? %>
+        <%= cl_image_tag @pooch.photo.key, class: "show-photo" %>
+          <%else%>
+        <img src="https://images.unsplash.com/photo-1585597975481-53a1be25f906?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" class="show-photo">
+        <%end%>
+        <div class="card-text mt-5">
+          <%= @pooch.caption %>
+        </div>
+      </div>
 
-
-<h2> <%= @pooch.name %> </h2>
-<div class="">
-  <% if @pooch.photo.attached? %>
-  <%= cl_image_tag @pooch.photo.key %>
-    <%else%>
-  <img src="https://images.unsplash.com/photo-1585597975481-53a1be25f906?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60">  
-  <%end%>
-  <%= @pooch.caption %>
+    </div>
+  </div>
 </div>

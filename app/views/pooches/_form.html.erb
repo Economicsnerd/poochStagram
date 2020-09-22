@@ -8,6 +8,9 @@
     <%= f.input :name, required: true, input_html: { maxlength: 10 } %>
     <%= f.input :caption %>
     <%= f.input :photo, as: :file, class: "form-control-file", required: true %>
-    <%= f.button :submit, class: "btn btn-primary" %>
+    <span>
+      <%= f.input :published, :as => :boolean, :input_html => { :checked => "Private post" }%>
+      <%= f.button :submit, class: "btn btn-primary" %>
+    </span>
   <% end %>
 </div>

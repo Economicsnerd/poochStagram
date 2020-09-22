@@ -6,7 +6,10 @@ class PoochesController < ApplicationController
 
   # GET /pooches
   def index
+    # default scope
     @pooches = Pooch.all
+    # named scope
+    @pooches = Pooch.published
   end
 
   # GET /pooches/new
@@ -53,7 +56,7 @@ class PoochesController < ApplicationController
   end
 
   def pooch_params
-    params.require(:pooch).permit(:name, :caption, :likes, :photo)
+    params.require(:pooch).permit(:name, :caption, :likes, :photo, :published)
   end
 
 end
