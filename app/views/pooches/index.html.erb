@@ -5,15 +5,9 @@
       <%= link_to pooch do %>
         <div class="pooch-listing">
           <p class="pooch-name"> <%= pooch.name%></p>
-          <% if pooch.photo.attached?%>
           <div class="pooch-photo">
              <%= cl_image_tag pooch.photo.key, class: "img-responsive" %>
           </div>
-            <%else%>
-            <div class="pooch-photo">
-               <img src="https://images.unsplash.com/photo-1585597975481-53a1be25f906?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" class="img-responsive">
-            </div>
-          <% end %>
         </div>
       <% end %>
     <% end %>

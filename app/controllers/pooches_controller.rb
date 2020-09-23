@@ -6,15 +6,14 @@ class PoochesController < ApplicationController
 
   # GET /pooches
   def index
-    # default scope
-    @pooches = Pooch.all
-    # named scope
-    @pooches = Pooch.published
+    @public = Pooch.published - current_user.pooches.where(published: true)
+    @private = current_user.pooches.where(published: false)
+    @pooches = @public + @private + current_user.pooches.where(published: true)
   end
 
   # GET /pooches/new
   def new
-    @pooch = Pooch.new
+    @pooch = current_user.pooches.build
   end
 
   # GET /pooches/:id
@@ -33,7 +32,7 @@ class PoochesController < ApplicationController
 
   # POST /pooches
   def create
-    @pooch = Pooch.new(pooch_params)
+    @pooch = current_user.pooches.new(pooch_params)
     if @pooch.save
       redirect_to @pooch, notice: 'Pooch Added <3'
     else
@@ -56,7 +55,7 @@ class PoochesController < ApplicationController
   end
 
   def pooch_params
-    params.require(:pooch).permit(:name, :caption, :likes, :photo, :published)
+    params.require(:pooch).permit(:name, :caption, :likes, :photo, :published, :user)
   end
 
 end
