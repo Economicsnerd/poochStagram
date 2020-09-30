@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   def create
     @pooch   = Pooch.find(params[:pooch_id])
       @comment = @pooch.comments.create(comment_params)
-      @comment.user_id = current_user.id
+      @comment.user_name = current_user.user_name
       if @comment.save
         redirect_to pooch_path(@pooch) 
       else

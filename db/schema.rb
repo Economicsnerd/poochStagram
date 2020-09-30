@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_30_220149) do
+ActiveRecord::Schema.define(version: 2020_09_30_223524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2020_09_30_220149) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "pooch_id"
     t.integer "user_id"
+    t.string "user_name"
   end
 
   create_table "commontator_comments", force: :cascade do |t|
