@@ -1,10 +1,15 @@
 class Pooch < ApplicationRecord
-  has_many :likes
+	
+  # Associations
+  has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_one_attached :photo
   belongs_to :user
+
   # public or private
   scope :published, -> { where(published: true) }
-  # validation
+
+  # Validation
   validates :photo, presence: true
   validates :name, presence: true
 

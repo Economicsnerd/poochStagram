@@ -55,7 +55,7 @@ class PoochesController < ApplicationController
   end
 
   def pooch_params
-    params.require(:pooch).permit(:name, :caption, :likes, :photo, :published, :user)
+    params.require(:pooch).permit(:name, :caption, :likes, :photo, :published, :user, :comment)
   end
 
 end

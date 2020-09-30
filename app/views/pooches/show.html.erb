@@ -3,7 +3,7 @@
 <br>
 <br>
 <div class="container">
-  <div class="card">
+  <div class="card mb-3">
     <div class="card-body">
       <h2 class = "card-title d-flex justify-content-between mb-4">
       <span> <%= @pooch.name %></span>
@@ -24,7 +24,25 @@
           <%= @pooch.caption %>
         </div>
       </div>
-
     </div>
+    <div class="container mb-3 mt-3">
+      <span>
+      <%= link_to 'Like', pooch_likes_path(@pooch), method: :post, class: "btn btn-primary" %>
+      <div class="mt-2">
+        <%= @pooch.likes.count %> <%= (@pooch.likes.count) == 1 ? 'Like' : 'Likes' %>
+      </div>
+      </span>
+    </div>
+    <section class="section comments">
+        <div class="container">
+            <h2 class="subtitle is-5"><strong><%= @pooch.comments.count %></strong> Comments</h2>
+            <%= render @pooch.comments %>
+            <div class="comment-form">
+                <hr />
+                <h3 class="subtitle is-3">Leave a reply</h3>
+                 <%= render 'comments/form' %>
+            </div>
+        </div>
+    </section>
   </div>
 </div>

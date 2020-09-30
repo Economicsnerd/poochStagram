@@ -37,6 +37,9 @@ gem 'cloudinary'
 # Adding devise for easy auth
 gem 'devise'
 
+# font_awesome for rails
+gem 'font_awesome5_rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
