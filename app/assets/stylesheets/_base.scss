@@ -2,6 +2,8 @@ body {
   font-family: 'Kumbh Sans', sans-serif;
 }
 
+
+
 // Styling the logo
 
 figure{
@@ -14,14 +16,6 @@ figure img{
    width:100%; /*make image streatch*/
 }
 
-// Styling the card images
-
-// .show-photo {
-//   width: auto;
-//   height: auto-fill;
-// }
-
-// Button color
 
 .btn-primary {
   background-color: #8C5CFA !important;
@@ -100,9 +94,44 @@ img {
   z-index: 1;
 }
 
+
+.pooch-footer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: opacity .5s;
+}
+
+.pooch-footer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  /* typographic styles */
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  text-decoration: none;
+    /* position the text centrally*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
 .pooch-listing:hover .pooch-name {
   opacity: 1;
 }
+
+.pooch-listing:hover .pooch-footer {
+  opacity: 1;
+}
+
 
 .pooch-photo img {
   filter: blur(0px);
@@ -112,6 +141,11 @@ img {
 .pooch-listing:hover .pooch-photo img {
   filter: blur(2px);
 }
+
+i {
+  margin-right: 10px;
+}
+
 
 /* for touch screen devices */
 @media (hover: none) {

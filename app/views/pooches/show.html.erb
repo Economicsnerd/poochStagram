@@ -27,7 +27,7 @@
     </div>
     <div class="container mb-3 mt-3">
       <span>
-      <%= link_to 'Like', pooch_likes_path(@pooch), method: :post, class: "btn btn-primary" %>
+      <%= button_to 'Like', pooch_likes_path(@pooch), method: :post, class: "btn btn-primary"%>
       <div class="mt-2">
         <%= @pooch.likes.count %> <%= (@pooch.likes.count) == 1 ? 'Like' : 'Likes' %>
       </div>
@@ -35,7 +35,7 @@
     </div>
     <section class="section comments">
         <div class="container">
-            <h2 class="subtitle is-5"><strong><%= @pooch.comments.count %></strong> Comments</h2>
+            <h2 class="subtitle is-5"><strong><%= @pooch.comments.count %> <%= (@pooch.comments.count) == 1 ? 'Comment' : 'Comments'%></strong></h2>
             <%= render @pooch.comments %>
             <div class="comment-form">
                 <hr />

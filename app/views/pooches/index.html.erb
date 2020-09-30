@@ -1,13 +1,21 @@
 <div class="child-page-listing">
 
-  <div class="grid-container" id="photos">
+<div class="grid-container" id="photos">
     <% @pooches.each do |pooch| %>
-      <%= link_to pooch do %>
+      <% if pooch.persisted?%>     
         <div class="pooch-listing">
-          <p class="pooch-name"> <%= pooch.name%></p>
+          <%= link_to pooch, class: 'text-decoration-none' do %>
+          <div class="pooch-name mb-3"> 
+            <h5><%= pooch.name%></h5> 
+          </div>
+          <div class="pooch-footer mt-4">
+            <span><i class="fas fa-heart mr-2"></i><%= pooch.likes.count %></span> 
+            <span><i class="fas fa-comment ml-2 mr-2"></i> <%= pooch.comments.count%></span> 
+          </div>
           <div class="pooch-photo">
              <%= cl_image_tag pooch.photo.key, class: "img-responsive" %>
           </div>
+         <% end %>
         </div>
       <% end %>
     <% end %>
