@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
     @pooch   = Pooch.find(params[:pooch_id])
       @comment = @pooch.comments.create(comment_params)
       @comment.user_name = current_user.user_name
+      @user_avatar = current_user.avatar.key
       if @comment.save
         redirect_to pooch_path(@pooch) 
       else
