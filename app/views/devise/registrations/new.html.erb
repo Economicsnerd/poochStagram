@@ -24,7 +24,7 @@
     </div>
     <div class="actions">
       <%= f.label "Profile Photo"%>
-      <%= f.file_field :avatar%>
+      <%= f.file_field :avatar, required: true %>
     </div>
     <div class="actions">
       <%= f.submit "Sign up", class: "btn btn-primary mt-3"%>

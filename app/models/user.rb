@@ -9,6 +9,9 @@ class User < ApplicationRecord
          has_many :likes
          has_many :comments
          has_one_attached :avatar
+
+         # Validation
          validates_uniqueness_of :user_name
+         validates :avatar, presence: true
      
 end
