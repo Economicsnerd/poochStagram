@@ -8,6 +8,8 @@ class User < ApplicationRecord
          has_many :pooches
          has_many :likes
          has_many :comments
+         has_one_attached :avatar
+         validates_uniqueness_of :user_name
 
     def self.find_for_database_authentication warden_condition
     conditions = warden_condition.dup
@@ -15,5 +17,5 @@ class User < ApplicationRecord
     where(conditions).where(
       ["lower(user_name) = :value OR lower(email) = :value",
       { value: login.strip.downcase}]).first
-  end       
+    end       
 end

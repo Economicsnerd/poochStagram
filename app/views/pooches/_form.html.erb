@@ -9,7 +9,7 @@
     <%= f.input :caption %>
     <%= f.input :photo, as: :file, class: "form-control-file", required: true %>
     <span>
-      <%= f.input :published, :as => :boolean, :input_html => { :checked => "Private post" }%>
+      <%= f.input :published, :as => :boolean, :input_html => { :checked => "Public Pooch" }%>
       <%= f.button :submit, class: "btn btn-primary" %>
     </span>
   <% end %>
