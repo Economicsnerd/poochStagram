@@ -7,10 +7,10 @@
     <%end%>
     <%= f.input :name, required: true, input_html: { maxlength: 10 } %>
     <%= f.input :caption %>
-    <%= f.input :photo, as: :file, class: "form-control-file", required: true %>
+    <%= f.input :photo, class: "btn btn-primary", as: :file, required: true %>
     <span>
-      <%= f.input :published, :as => :boolean, :input_html => { :checked => "Public Pooch" }%>
-      <%= f.button :submit, class: "btn btn-primary" %>
+      <%= f.input :published, :label => "Public Post", :as => :boolean, :input_html => { :checked => "Public Pooch" }%>
     </span>
+      <%= f.button :submit, class: "btn btn-primary mb-4" %>
   <% end %>
 </div>
